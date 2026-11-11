@@ -2724,8 +2724,7 @@ button {
   height: 224px;
   background: url("images/section-bg-leaf-1.png") no-repeat left bottom;
   background-size: contain;
-  filter: brightness(0) invert(1);
-  opacity: 0.65;
+  opacity: 1;
   pointer-events: none;
   z-index: 1;
   animation: leafFloatUp 3.2s infinite alternate ease-in-out;
@@ -2740,8 +2739,7 @@ button {
   height: 160px;
   background: url("images/section-bg-leaf-8.png") no-repeat right top;
   background-size: contain;
-  filter: brightness(0) invert(1);
-  opacity: 0.65;
+  opacity: 1;
   pointer-events: none;
   z-index: 1;
   animation: leafFloatDown 3.2s infinite alternate ease-in-out;
@@ -3006,7 +3004,7 @@ button {
   }
   .site-footer::before,
   .site-footer::after {
-    opacity: 0.45;
+    opacity: 0.75;
   }
 }
 
@@ -3840,7 +3838,8 @@ button {
   height: 160px;
   background: url("images/section-bg-leaf-8.png") no-repeat top right;
   background-size: contain;
-  opacity: 0.55;
+  filter: brightness(0) invert(24%) sepia(22%) saturate(900%) hue-rotate(130deg);
+  opacity: 1;
   pointer-events: none;
   z-index: 1;
   animation: leafFloatDown 3.2s infinite alternate ease-in-out;
@@ -3851,11 +3850,11 @@ button {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 220px;
-  height: 178px;
+  width: 240px;
+  height: 194px;
   background: url("images/section-bg-leaf-4.png") no-repeat bottom left;
   background-size: contain;
-  opacity: 0.55;
+  opacity: 1;
   pointer-events: none;
   z-index: 1;
   animation: leafFloatUp 3.2s infinite alternate ease-in-out;
@@ -4161,8 +4160,7 @@ button {
   height: 224px;
   background: url("images/section-bg-leaf-1.png") no-repeat left bottom;
   background-size: contain;
-  filter: brightness(0) invert(1);
-  opacity: 0.65;
+  opacity: 1;
   pointer-events: none;
   z-index: 1;
   animation: leafFloatTopFlipped 3.4s infinite alternate ease-in-out;
@@ -4177,8 +4175,7 @@ button {
   height: 154px;
   background: url("images/section-bg-leaf-5.png") no-repeat right bottom;
   background-size: contain;
-  filter: brightness(0) invert(1);
-  opacity: 0.65;
+  opacity: 1;
   pointer-events: none;
   z-index: 1;
   animation: leafFloatUp 3.4s infinite alternate ease-in-out;
