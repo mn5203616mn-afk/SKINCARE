@@ -2722,7 +2722,7 @@ button {
   left: 0;
   width: 194px;
   height: 224px;
-  background: url("section-bg-leaf-1.png") no-repeat left bottom;
+  background: url("images/section-bg-leaf-1.png") no-repeat left bottom;
   background-size: contain;
   filter: brightness(0) invert(1);
   opacity: 0.65;
@@ -2738,7 +2738,7 @@ button {
   right: 0;
   width: 148px;
   height: 160px;
-  background: url("section-bg-leaf-8.png") no-repeat right top;
+  background: url("images/section-bg-leaf-8.png") no-repeat right top;
   background-size: contain;
   filter: brightness(0) invert(1);
   opacity: 0.65;
@@ -3838,7 +3838,7 @@ button {
   right: 0;
   width: 148px;
   height: 160px;
-  background: url("section-bg-leaf-8.png") no-repeat top right;
+  background: url("images/section-bg-leaf-8.png") no-repeat top right;
   background-size: contain;
   opacity: 0.55;
   pointer-events: none;
@@ -3853,7 +3853,7 @@ button {
   left: 0;
   width: 220px;
   height: 178px;
-  background: url("section-bg-leaf-4.png") no-repeat bottom left;
+  background: url("images/section-bg-leaf-4.png") no-repeat bottom left;
   background-size: contain;
   opacity: 0.55;
   pointer-events: none;
@@ -4159,7 +4159,7 @@ button {
   left: 0;
   width: 194px;
   height: 224px;
-  background: url("section-bg-leaf-1.png") no-repeat left bottom;
+  background: url("images/section-bg-leaf-1.png") no-repeat left bottom;
   background-size: contain;
   filter: brightness(0) invert(1);
   opacity: 0.65;
@@ -4175,7 +4175,7 @@ button {
   right: 0;
   width: 224px;
   height: 154px;
-  background: url("section-bg-leaf-5.png") no-repeat right bottom;
+  background: url("images/section-bg-leaf-5.png") no-repeat right bottom;
   background-size: contain;
   filter: brightness(0) invert(1);
   opacity: 0.65;

@@ -189,25 +189,25 @@ document.addEventListener('DOMContentLoaded', () => {
       stepTag: 'STEP 1 OF 4: RADIANCE PREPARATION',
       title: 'Botanical Radiance Serum ($46)',
       desc: 'Infused with cold-pressed Kakadu Vitamin C and botanical hyaluronic acid for an instant radiant dewy glow.',
-      img: 'prod_radiance_serum_clean.jpg'
+      img: 'images/prod_radiance_serum_clean.jpg'
     },
     {
       stepTag: 'STEP 2 OF 4: LUMINOUS HYDRATION',
       title: 'Luminous Hydration Teal Cream ($58)',
       desc: 'Powered by botanical eucalyptus infusion and ocean bio-actives to lock in 72 hours of moisture bounce.',
-      img: 'hero-luminous-clean.jpg'
+      img: 'images/hero-luminous-clean.jpg'
     },
     {
       stepTag: 'STEP 3 OF 4: DEEP NOURISHMENT',
       title: 'Hydra-Glow Daily Moisturizer ($38)',
       desc: 'Bio-fermented sea kelp and glacier hydration fortify the natural lipid barrier against dry environmental fatigue.',
-      img: 'prod_hydra_glow_clean.jpg'
+      img: 'images/prod_hydra_glow_clean.jpg'
     },
     {
       stepTag: 'STEP 4 OF 4: MINERAL DEFENSE',
       title: 'Daily UV Defense SPF 50 ($34)',
       desc: 'Ultra-weightless invisible micronized zinc shields skin from UVA/UVB rays with zero white cast or stickiness.',
-      img: 'prod_daily_sunscreen_clean.jpg'
+      img: 'images/prod_daily_sunscreen_clean.jpg'
     }
   ];
 
@@ -373,14 +373,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const quickTagPills = document.querySelectorAll('.quick-tag-pill');
 
   const catalogItems = [
-    { name: 'Hydra-Glow Moisturizer', cat: 'Moisturizers', price: '$38.00', img: 'prod_hydra_glow_clean.jpg', id: 'hydra-glow' },
-    { name: 'Botanical Radiance Serum', cat: 'Serums', price: '$46.00', img: 'prod_radiance_serum_clean.jpg', id: 'radiance-serum' },
-    { name: 'Overnight Recovery Cream', cat: 'Moisturizers', price: '$52.00', img: 'prod_nourishing_cream_clean.jpg', id: 'night-cream' },
-    { name: 'Daily UV Defense SPF 50', cat: 'Sun Care', price: '$34.00', img: 'prod_daily_sunscreen_clean.jpg', id: 'uv-sunscreen' },
-    { name: 'Gentle Purifying Cleanser', cat: 'Cleansers', price: '$28.00', img: 'cat_cleansers.jpg', id: 'collections' },
-    { name: 'Hydrating Botanical Toner', cat: 'Toners', price: '$32.00', img: 'cat_toners.jpg', id: 'collections' },
-    { name: 'Awakening Eye Contour Cream', cat: 'Eye Care', price: '$42.00', img: 'cat_eyecare.jpg', id: 'collections' },
-    { name: 'Luminous Hydration Teal Cream', cat: 'Moisturizers', price: '$58.00', img: 'hero-luminous-clean.jpg', id: 'hero-banner' }
+    { name: 'Hydra-Glow Moisturizer', cat: 'Moisturizers', price: '$38.00', img: 'images/prod_hydra_glow_clean.jpg', id: 'hydra-glow' },
+    { name: 'Botanical Radiance Serum', cat: 'Serums', price: '$46.00', img: 'images/prod_radiance_serum_clean.jpg', id: 'radiance-serum' },
+    { name: 'Overnight Recovery Cream', cat: 'Moisturizers', price: '$52.00', img: 'images/prod_nourishing_cream_clean.jpg', id: 'night-cream' },
+    { name: 'Daily UV Defense SPF 50', cat: 'Sun Care', price: '$34.00', img: 'images/prod_daily_sunscreen_clean.jpg', id: 'uv-sunscreen' },
+    { name: 'Gentle Purifying Cleanser', cat: 'Cleansers', price: '$28.00', img: 'images/cat_cleansers.jpg', id: 'collections' },
+    { name: 'Hydrating Botanical Toner', cat: 'Toners', price: '$32.00', img: 'images/cat_toners.jpg', id: 'collections' },
+    { name: 'Awakening Eye Contour Cream', cat: 'Eye Care', price: '$42.00', img: 'images/cat_eyecare.jpg', id: 'collections' },
+    { name: 'Luminous Hydration Teal Cream', cat: 'Moisturizers', price: '$58.00', img: 'images/hero-luminous-clean.jpg', id: 'hero-banner' }
   ];
 
   let currentSearchFilter = 'all';
@@ -402,7 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     searchResults.innerHTML = filtered.map(item => `
       <div class="search-item-row" data-target="${item.id}">
-        <img src="${item.img}" alt="${item.name}" class="search-item-thumb" onerror="this.src='hero-clean-bg.png'">
+        <img src="${item.img}" alt="${item.name}" class="search-item-thumb" onerror="this.src='images/hero-clean-bg.png'">
         <div class="search-item-details">
           <div class="search-item-name">${item.name}</div>
           <div class="search-item-cat">${item.cat} • Clean Botanical</div>
