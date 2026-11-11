@@ -806,7 +806,24 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileNavBackdrop.addEventListener('click', closeMobileNav);
   }
   mobileNavItems.forEach(item => {
-    item.addEventListener('click', closeMobileNav);
+    item.addEventListener('click', (e) => {
+      const href = item.getAttribute('href');
+      closeMobileNav();
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        mobileNavItems.forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        const targetEl = document.querySelector(href);
+        if (targetEl) {
+          const headerHeight = 64;
+          const elementPosition = targetEl.getBoundingClientRect().top + window.pageYOffset;
+          window.scrollTo({
+            top: elementPosition - headerHeight,
+            behavior: 'smooth'
+          });
+        }
+      }
+    });
   });
 
   // Initial render

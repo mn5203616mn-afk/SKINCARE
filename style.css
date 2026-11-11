@@ -57,6 +57,7 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 body {
@@ -65,6 +66,7 @@ body {
   background-color: #f7faf9;
   line-height: 1.5;
   overflow-x: hidden;
+  overflow-x: clip;
 }
 
 img {
@@ -929,7 +931,7 @@ button {
   border: none;
   padding: 22px 28px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: center;
   width: 100%;
   box-sizing: border-box;
@@ -1151,6 +1153,8 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  white-space: nowrap;
+  flex-shrink: 0;
   border: 1px solid var(--color-text-dark);
   color: var(--color-text-dark);
   padding: 9px 24px;
@@ -1192,7 +1196,7 @@ button {
 /* Product Cards Grid */
 .products-cards-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -1581,7 +1585,7 @@ button {
   box-shadow: none;
   padding: 28px 36px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -1589,6 +1593,7 @@ button {
   display: flex;
   align-items: center;
   gap: 14px;
+  min-width: 0;
 }
 
 .bottom-ribbon-icon svg {
@@ -1965,6 +1970,56 @@ button {
    Comprehensive Responsive Architecture (All Devices & Screen Sizes)
    ========================================================================== */
 
+/* --- Laptop / Small Desktop (<= 1200px) --- */
+@media (max-width: 1200px) {
+  .nav-menu {
+    gap: clamp(18px, 2.2vw, 38px);
+  }
+
+  .nav-item {
+    font-size: 0.78rem;
+    letter-spacing: 1px;
+  }
+
+  .category-round-frame {
+    width: clamp(118px, 12.2vw, 155px);
+    height: clamp(118px, 12.2vw, 155px);
+  }
+
+  .special-offer-img-col {
+    flex: 0 0 clamp(320px, 38vw, 460px);
+  }
+
+  .special-offer-club-col {
+    flex: 0 0 210px;
+    padding: 20px 24px;
+  }
+
+  .dermal-benefits-card {
+    padding: 52px 36px;
+  }
+
+  .dermal-benefits-grid {
+    gap: 28px;
+  }
+
+  .dermal-benefits-center {
+    padding: 24px 16px;
+  }
+
+  .dermal-benefit-oval-frame {
+    width: clamp(240px, 23vw, 310px);
+  }
+
+  .footer-compact-main {
+    padding: 56px 36px 40px;
+  }
+
+  .footer-compact-bottom {
+    padding: 22px 36px;
+  }
+}
+
 /* --- Tablet / iPad / Laptop (<= 992px) --- */
 @media (max-width: 992px) {
   .mobile-menu-toggle {
@@ -1987,22 +2042,47 @@ button {
   .hero-stage {
     min-height: 560px;
     height: auto;
-    padding: 50px 0 60px;
+    padding: 56px 0 80px;
   }
 
   .hero-stage-bg {
     width: 100%;
     max-width: 100%;
     object-position: 70% top;
-    opacity: 0.88;
+    opacity: 0.85;
   }
 
   .hero-text-col {
-    max-width: 360px;
+    max-width: 520px;
+  }
+
+  .hero-kicker {
+    font-size: 0.95rem;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
   }
 
   .hero-title {
-    font-size: 2.05rem;
+    font-size: clamp(2.4rem, 4.6vw, 3.1rem);
+    margin-bottom: 18px;
+  }
+
+  .hero-leaf-divider {
+    margin-bottom: 18px;
+  }
+
+  .hero-subtext {
+    font-size: 1.08rem;
+    margin-bottom: 24px;
+  }
+
+  .hero-floating-badge {
+    bottom: 68px;
+    right: 24px;
+  }
+
+  .trust-ribbon-container {
+    margin-top: -28px;
   }
 
   .category-items-grid {
@@ -2013,7 +2093,7 @@ button {
   }
 
   .products-cards-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
   }
 
@@ -2023,9 +2103,13 @@ button {
   }
 
   .special-offer-img-col {
-    align-self: center;
-    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 65%, transparent 100%);
-    mask-image: linear-gradient(to bottom, #000 0%, #000 65%, transparent 100%);
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+    height: 240px;
+    align-self: stretch;
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 68%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 68%, transparent 100%);
   }
 
   .special-offer-img-col::after {
@@ -2039,28 +2123,36 @@ button {
   }
 
   .special-offer-img-col img {
-    height: 160px;
+    width: 100%;
+    height: 100%;
+    object-position: center;
   }
 
   .special-offer-copy-col {
     text-align: center;
-    padding: 16px 20px;
+    padding: 20px 24px;
   }
 
   .special-offer-club-col {
-    flex: auto;
+    flex: none;
+    width: 100%;
     border-left: none;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     align-items: center;
     text-align: center;
-    margin: 0 0 20px 0;
-    padding-top: 16px;
+    margin: 0;
+    padding: 20px 24px 24px;
   }
 
   .trust-ribbon-box,
   .bottom-trust-ribbon {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px 14px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 14px;
+  }
+
+  .trust-pillar {
+    justify-content: flex-start;
+    padding: 4px 10px;
   }
 
   .trust-pillar:nth-child(2n) {
@@ -2073,13 +2165,17 @@ button {
   }
 
   .footer-compact-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
   }
 }
 
 /* --- Mobile / Phablets (<= 768px) --- */
 @media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+
   .top-bar-right {
     display: none !important;
   }
@@ -2096,18 +2192,67 @@ button {
   }
 
   .hero-stage {
-    min-height: 500px;
-    padding: 42px 0 52px;
+    min-height: 470px;
+    padding: 42px 0 68px;
+  }
+
+  .hero-stage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(10, 56, 51, 0.72) 0%, rgba(10, 56, 51, 0.45) 100%);
+    z-index: 2;
+    pointer-events: none;
   }
 
   .hero-stage-bg {
     object-position: 75% top;
-    opacity: 0.40;
+    opacity: 0.52;
     min-width: 0;
   }
 
+  .hero-overlay-container {
+    padding: 0 20px;
+  }
+
+  .hero-text-col {
+    max-width: 100%;
+  }
+
   .hero-title {
-    font-size: 2.1rem;
+    font-size: 2.2rem;
+  }
+
+  .hero-floating-badge {
+    display: none;
+  }
+
+  .trust-ribbon-container {
+    margin-top: 20px;
+    padding: 0 16px;
+  }
+
+  .category-section {
+    padding: 48px 0 28px 0;
+  }
+
+  .category-ornament-header {
+    margin-bottom: 28px;
+    gap: 10px;
+  }
+
+  .ornament-rule {
+    width: 40px;
+  }
+
+  .featured-products-section,
+  .dermal-benefits-section,
+  .special-offer-section {
+    padding: 28px 0;
+  }
+
+  .bottom-trust-wrapper {
+    padding: 28px 0 48px 0;
   }
 
   .category-items-grid {
@@ -2131,10 +2276,55 @@ button {
     width: 100vw;
     max-width: 100vw;
   }
+
+  .dermal-services-section {
+    width: calc(100% - 32px);
+    border-radius: 20px;
+    padding: 40px 20px;
+  }
+
+  .site-footer {
+    border-radius: 20px;
+  }
+
+  .search-modal-card,
+  .account-modal-card,
+  .video-ritual-card {
+    max-width: calc(100vw - 24px);
+  }
+
+  .interactive-modal-backdrop {
+    padding: 12px;
+  }
+
+  .ritual-video-viewport {
+    height: auto;
+    min-height: 240px;
+  }
+
+  .ritual-stage-text-col {
+    padding: 16px;
+  }
+
+  .ritual-stage-bar {
+    flex-wrap: wrap;
+    gap: 8px;
+    border-radius: 16px;
+    padding: 8px 12px;
+  }
+
+  .ritual-timeline-steps {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
 }
 
 /* --- Standard Mobile (<= 540px) --- */
 @media (max-width: 540px) {
+  .container {
+    padding: 0 16px;
+  }
+
   .header-container {
     padding: 10px 14px;
   }
@@ -2144,7 +2334,7 @@ button {
   }
 
   .brand-tagline {
-    font-size: 0.58rem;
+    font-size: 0.56rem;
     letter-spacing: 1.2px;
   }
 
@@ -2158,53 +2348,90 @@ button {
   }
 
   .tool-icon-btn {
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
   }
 
   .hero-stage {
     min-height: auto;
-    padding: 34px 14px 44px;
+    padding: 34px 0 64px;
+  }
+
+  .hero-overlay-container {
+    padding: 0 16px;
   }
 
   .hero-stage-bg {
-    opacity: 0.22;
+    opacity: 0.35;
+  }
+
+  .hero-kicker {
+    font-size: 0.8rem;
+    letter-spacing: 2.2px;
+    margin-bottom: 10px;
   }
 
   .hero-title {
-    font-size: clamp(1.75rem, 6.2vw, 2.1rem);
-    line-height: 1.2;
+    font-size: clamp(1.85rem, 7vw, 2.2rem);
+    line-height: 1.18;
     margin-bottom: 14px;
   }
 
   .hero-subtext {
-    font-size: 0.92rem;
+    font-size: 0.94rem;
     max-width: 100%;
     line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .hero-subtext br,
+  .offer-sub-paragraph br,
+  .dermal-benefits-sub br,
+  .dermal-services-sub br {
+    display: none;
   }
 
   .hero-btn-row {
     flex-direction: column;
+    align-items: stretch;
     width: 100%;
     gap: 10px;
+    padding-bottom: 4px;
   }
 
-  .hero-btn-row .btn-base {
+  .btn-shop-now,
+  .btn-watch-video {
     width: 100%;
     justify-content: center;
     text-align: center;
-    box-sizing: border-box;
+    padding: 14px 22px;
+    font-size: 0.88rem;
+  }
+
+  .featured-top-bar {
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .featured-title-text {
+    font-size: 1.35rem;
+    white-space: normal;
+  }
+
+  .featured-diamond-line {
+    display: none;
   }
 
   .products-cards-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 18px;
   }
 
   .single-product-card {
-    max-width: 340px;
+    max-width: 360px;
     margin: 0 auto;
     width: 100%;
+    min-height: auto;
   }
 
   .trust-ribbon-box,
@@ -2212,6 +2439,11 @@ button {
     grid-template-columns: 1fr;
     gap: 12px;
     padding: 18px 16px;
+  }
+
+  .trust-pillar {
+    justify-content: flex-start;
+    padding: 4px 2px;
   }
 
   .trust-pillar:nth-child(2n) {
@@ -2230,6 +2462,18 @@ button {
 
   .category-title {
     font-size: 0.85rem;
+  }
+
+  .special-offer-img-col {
+    height: 190px;
+  }
+
+  .offer-big-title {
+    font-size: 1.75rem;
+  }
+
+  .offer-sub-paragraph {
+    font-size: 0.94rem;
   }
 
   .ingredients-theme-grid {
@@ -2266,7 +2510,7 @@ button {
 
   .footer-compact-grid {
     grid-template-columns: 1fr;
-    gap: 22px;
+    gap: 24px;
   }
 
   .footer-newsletter-form {
@@ -2279,10 +2523,17 @@ button {
     justify-content: center;
   }
 
+  .footer-bottom-row,
   .footer-bottom-flex {
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     text-align: center;
+    justify-content: center;
+  }
+
+  .footer-bottom-links {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .scroll-progress-button {
@@ -2309,12 +2560,16 @@ button {
   }
 
   .hero-title {
-    font-size: 1.6rem;
+    font-size: 1.65rem;
   }
 
   .category-round-frame {
     width: 105px;
     height: 105px;
+  }
+
+  .ritual-prod-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -2913,6 +3168,7 @@ button {
 
 .footer-mini-input {
   flex-grow: 1;
+  min-width: 0;
   background: transparent;
   border: none;
   outline: none;
@@ -4100,6 +4356,9 @@ button {
 
 /* Responsive Breakpoints */
 @media (max-width: 1024px) {
+  .dermal-services-section {
+    padding: 46px 28px;
+  }
   .dermal-card {
     flex: 0 0 calc((100% - 24px) / 2);
     height: 420px;
@@ -4114,17 +4373,32 @@ button {
     width: calc(100% - 32px);
     padding: 36px 20px;
     border-radius: 20px;
-    margin: 30px auto;
+    margin: 28px auto;
+  }
+  .dermal-services-section::before {
+    width: 105px;
+    height: 114px;
+    top: 14px;
+  }
+  .dermal-services-section::after {
+    width: 140px;
+    height: 114px;
+  }
+  .dermal-services-header {
+    margin-bottom: 28px;
   }
   .dermal-card {
     flex: 0 0 100%;
     height: 390px;
   }
   .dermal-services-title {
-    font-size: 28px;
+    font-size: 1.7rem;
+  }
+  .dermal-services-title br {
+    display: none;
   }
   .dermal-services-sub {
-    font-size: 14px;
+    font-size: 0.9rem;
   }
 }
 
@@ -4358,8 +4632,13 @@ button {
     order: -1;
   }
   .dermal-benefit-oval-frame {
-    width: 230px;
-    height: 320px;
+    width: 240px;
+    height: auto;
+    aspect-ratio: 1 / 1.45;
+    border-radius: 120px;
+  }
+  .benefit-item-text {
+    min-width: 0;
   }
   .benefit-align-right {
     flex-direction: row-reverse;
@@ -4377,11 +4656,40 @@ button {
     padding: 36px 20px;
     border-radius: 20px;
   }
+  .dermal-benefits-card::before {
+    width: 120px;
+    height: 138px;
+  }
+  .dermal-benefits-card::after {
+    width: 140px;
+    height: 96px;
+  }
+  .dermal-benefits-header {
+    margin-bottom: 32px;
+  }
+  .dermal-benefits-center {
+    padding: 16px 12px;
+  }
+  .dermal-benefit-oval-frame {
+    width: 220px;
+    height: auto;
+    aspect-ratio: 1 / 1.45;
+    border-radius: 110px;
+  }
   .dermal-benefits-title {
-    font-size: 1.85rem;
+    font-size: 1.7rem;
+  }
+  .dermal-benefits-title br {
+    display: none;
   }
   .dermal-benefits-sub {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
+  }
+  .dermal-benefits-col {
+    gap: 24px;
+  }
+  .dermal-benefit-item {
+    gap: 14px;
   }
   .benefit-icon-box {
     width: 46px;
@@ -4396,6 +4704,15 @@ button {
   }
   .benefit-item-desc {
     font-size: 0.86rem;
+  }
+  .site-footer::before {
+    width: 120px;
+    height: 138px;
+  }
+  .site-footer::after {
+    width: 100px;
+    height: 108px;
+    top: 14px;
   }
 }
 
@@ -4490,6 +4807,16 @@ body.cursor-dark-mode.cursor-hover .cursor-outer {
 /* Split-Character Heading Animation (at-animation-heading-style-3) */
 .at-split-heading {
   perspective: 400px;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.category-section,
+.featured-products-section,
+.dermal-benefits-section,
+.special-offer-section,
+.bottom-trust-wrapper {
+  overflow-x: clip;
 }
 
 .at-split-heading .at-word {
